@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TowerScriptableObject", menuName = "ScriptableObjects/Towers")]
+[CreateAssetMenu(fileName = "TowerScriptableObject", menuName = "ScriptableObjects/Tower")]
 public class TowerSO : ScriptableObject
 {
     [field: SerializeField]
@@ -14,5 +14,5 @@ public class TowerSO : ScriptableObject
     [field: SerializeField]
     public float Multiplier { get; private set; }
     [field: SerializeField]
-    public GameObject ProjectilePregabe { get; private set; }
+    public GameObject ProjectilePrefab { get; private set; }
 }
