@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TowerBuyButton : SetActiveOnGameState
+public class StartHordeButton : SetActiveOnGameState
 {
     [SerializeField]
     private PlayerStateSO playerState;
-    [SerializeField]
-    private GameObject towerPrefab;
 
     private Button button;
-    private TowerSpawn towerSpawnManager;
 
-    private void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
         button = GetComponent<Button>();
-        towerSpawnManager = FindObjectOfType<TowerSpawn>();
 
-        button.onClick.AddListener(delegate () { towerSpawnManager.TowerSelected(towerPrefab); });
+        button.onClick.AddListener(delegate () { gameState.ChangeStateToBattling(); });
     }
 
     protected override void OnEnable()

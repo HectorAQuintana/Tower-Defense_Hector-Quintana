@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameStateScriptableObject", menuName = "ScriptableObjects/GameState")]
 public class GameStateSO : ScriptableObject
 {
-    private enum GameState
+    public enum GameState
     {
         Building,
         Battling
