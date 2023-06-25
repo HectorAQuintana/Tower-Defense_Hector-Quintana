@@ -18,6 +18,7 @@ public class Tower : MonoBehaviour
     private Enemy enemieInRange;
     private bool canShoot = true;
     public int GetCurrentPrice => currentPrice;
+    public TowerSO TowerScriptableObject => towerSO;
 
     // Start is called before the first frame update
     void Start()

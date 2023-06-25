@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779f1c80a81d224489c6e05d0cfd9f09, type: 3}
   m_Name: TowerSO-First
   m_EditorClassIdentifier: 
-  <Range>k__BackingField: 5
+  <Range>k__BackingField: 10
   <Damage>k__BackingField: 5
   <FireRate>k__BackingField: 0.1
   <Price>k__BackingField: 3
