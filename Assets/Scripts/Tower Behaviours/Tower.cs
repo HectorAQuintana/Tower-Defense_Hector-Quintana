@@ -59,13 +59,13 @@ public class Tower : MonoBehaviour
 
     private void AimAtEnemy()
     {
-        if(enemieInRange != null)
-        {
-            Vector3 enemiePosition = enemieInRange.transform.position;
-            Vector3 lookAtPosition = new Vector3(enemiePosition.x, transform.position.y, enemiePosition.z);
+        if (enemieInRange == null) { return; }
 
-            transform.LookAt(lookAtPosition);
-        }
+        Vector3 enemiePosition = enemieInRange.transform.position;
+        Vector3 lookAtPosition = new Vector3(enemiePosition.x, transform.position.y, enemiePosition.z);
+
+        transform.LookAt(lookAtPosition);
+
     }
 
     private void OnTriggerStay(Collider other)
