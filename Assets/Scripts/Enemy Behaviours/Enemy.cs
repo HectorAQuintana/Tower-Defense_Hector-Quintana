@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
 
     private void EnemyDefeated()
     {
-        OnEnemyDeath.Invoke();
+        OnEnemyDeath?.Invoke();
         state = EnemySO.State.Death;
         gameObject.SetActive(false);
     }
