@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     public UnityAction OnEnemyDeath;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         waypointsSystem = FindObjectOfType<WaypointsSystem>();
 

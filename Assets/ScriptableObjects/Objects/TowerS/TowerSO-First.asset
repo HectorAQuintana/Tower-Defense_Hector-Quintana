@@ -17,4 +17,4 @@ MonoBehaviour:
   <FireRate>k__BackingField: 2
   <Price>k__BackingField: 3
   <Multiplier>k__BackingField: 1.5
-  <ProjectilePregabe>k__BackingField: {fileID: 0}
+  <ProjectilePrefab>k__BackingField: {fileID: 6874712315787634885, guid: dff023742d91d99478304ce903c2de1f, type: 3}

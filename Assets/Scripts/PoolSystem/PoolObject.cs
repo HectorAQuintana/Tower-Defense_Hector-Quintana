@@ -17,6 +17,7 @@ public class PoolObject
     private GameObject CreatePooledObject()
     {
         GameObject newObject = Object.Instantiate(prefab);
+        newObject.name = prefab.name;
         newObject.SetActive(true);
         return newObject;
     }

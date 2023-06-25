@@ -8,13 +8,15 @@ public class Tower : MonoBehaviour
     private TowerSO towerSO;
     [SerializeField]
     private SphereCollider sphereCollider;
+    [SerializeField]
+    private Transform projectileSpawnTransfomr;
 
     private int level = 1;
     private int currentDamage;
     private float currentFireRate;
     private int currentPrice;
     private Enemy enemieInRange;
-
+    private bool canShoot = true;
     public int GetCurrentPrice => currentPrice;
 
     // Start is called before the first frame update
@@ -66,6 +68,37 @@ public class Tower : MonoBehaviour
 
         transform.LookAt(lookAtPosition);
 
+        if(canShoot)
+            ShootProjectilce();
+    }
+
+    private IEnumerator TowerCooldown()
+    {
+        yield return new WaitForSeconds(currentFireRate);
+        canShoot = true;
+    }
+
+    private void ShootProjectilce()
+    {
+        canShoot = false;
+
+        GameObject projectile;
+
+        if(!PoolManager.Pools.ContainsKey(towerSO.ProjectilePrefab.name))
+        {
+            projectile = PoolManager.InitializePool(towerSO.ProjectilePrefab, 100);
+        }
+        else
+        {
+            projectile = PoolManager.Pools[towerSO.ProjectilePrefab.name].Get;
+        }
+
+        projectile.transform.position = projectileSpawnTransfomr.position;
+        projectile.transform.rotation = projectileSpawnTransfomr.rotation;
+
+        projectile.GetComponent<Projectile>().ShootProjectile(currentDamage);
+
+        StartCoroutine(TowerCooldown());
     }
 
     private void OnTriggerStay(Collider other)
