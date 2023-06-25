@@ -19,14 +19,14 @@ public class PlayerStateSO : ScriptableObject
 
     private void OnEnable()
     {
-        if (playerState == PlayerState.Idle) { return; }
+        if (IsIdle) { return; }
 
         playerState = PlayerState.Idle;
     }
 
     private void OnDisable()
     {
-        if (playerState == PlayerState.Idle) { return; }
+        if (IsIdle) { return; }
 
         playerState = PlayerState.Idle;
     }
@@ -36,7 +36,7 @@ public class PlayerStateSO : ScriptableObject
 
     public void SetPlayerToIdle()
     {
-        if (playerState == PlayerState.Idle) { return; }
+        if (IsIdle) { return; }
 
         playerState = PlayerState.Idle;
         OnPlayerStateChange?.Invoke();
@@ -44,7 +44,7 @@ public class PlayerStateSO : ScriptableObject
 
     public void SetPlayerToBuilding()
     {
-        if (playerState == PlayerState.Building) { return; }
+        if (IsBuilding) { return; }
 
         playerState = PlayerState.Building;
         OnPlayerStateChange?.Invoke();
