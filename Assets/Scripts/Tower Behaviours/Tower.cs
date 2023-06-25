@@ -13,6 +13,7 @@ public class Tower : MonoBehaviour
     private int currentDamage;
     private float currentFireRate;
     private int currentPrice;
+    private Enemy enemieInRange;
 
     public int GetCurrentPrice => currentPrice;
 
@@ -50,15 +51,50 @@ public class Tower : MonoBehaviour
         return (stat + ((level - 1) * towerSO.Multiplier * stat));
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        AimAtEnemy();
+    }
+
+    private void AimAtEnemy()
+    {
+        if(enemieInRange != null)
+        {
+            Vector3 enemiePosition = enemieInRange.transform.position;
+            Vector3 lookAtPosition = new Vector3(enemiePosition.x, transform.position.y, enemiePosition.z);
+
+            transform.LookAt(lookAtPosition);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("Enemy") && enemieInRange == null)
+        {
+            Enemy newEnemy = other.GetComponent<Enemy>();
+            enemieInRange = newEnemy;
+            newEnemy.OnEnemyDeath += RemoveEnemy;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Enemy") && enemieInRange == other.GetComponent<Enemy>())
+        {
+            RemoveEnemy();
+        }
+    }
+
+    private void RemoveEnemy()
+    {
+        enemieInRange.OnEnemyDeath -= RemoveEnemy;
+        enemieInRange = null;
+    }
+
     public void LevelUp()
     {
         level++;
         UpdateTowerStats();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
