@@ -5,6 +5,8 @@ using UnityEngine;
 public class TowerSpawn : MonoBehaviour
 {
     [SerializeField]
+    private PlayerStateSO playerState;
+    [SerializeField]
     private GameObject towerIndicator;
     [SerializeField]
     private GameObject towerRangeIndicator;
@@ -13,7 +15,6 @@ public class TowerSpawn : MonoBehaviour
 
     private Camera cam;
     private GameObject towerToBuild;
-    private bool buildingTower = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class TowerSpawn : MonoBehaviour
 
     private IEnumerator PositionTower()
     {
-        while(buildingTower)
+        while(playerState.IsBuilding)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -60,7 +61,7 @@ public class TowerSpawn : MonoBehaviour
 
     private void BuildTower(Vector3 position)
     {
-        buildingTower = false;
+        playerState.SetPlayerToIdle();
 
         GameObject newTower;
 
@@ -79,10 +80,7 @@ public class TowerSpawn : MonoBehaviour
     public void TowerSelected(GameObject towerPrefab)
     {
         towerToBuild = towerPrefab;
-        buildingTower = true;
+        playerState.SetPlayerToBuilding();
         StartCoroutine(PositionTower());
     }
-
-
-    public bool IsBuildingTower => buildingTower;
 }
