@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Enemy : MonoBehaviour
     private HordeEventsSO hordeEvent;
     [SerializeField]
     private PlayerStatsSO playerStats;
+    [SerializeField]
+    private Slider healthBar;
 
     private EnemySO.State state = EnemySO.State.Alive;
     private WaypointsSystem waypointsSystem;
@@ -53,6 +56,7 @@ public class Enemy : MonoBehaviour
         currentHealth = enemySO.Health;
         currentSpeed = enemySO.Speed;
         hordeEvent.OnEnemySpawned.Invoke();
+        UpdateHealthBar();
     }
 
     // Update is called once per frame
@@ -86,6 +90,11 @@ public class Enemy : MonoBehaviour
         positionToGo = waypointsSystem.GetWaypointPosition(waypointIndex);
     }
 
+    private void UpdateHealthBar()
+    {
+        healthBar.value = (float)currentHealth / (float)enemySO.Health;
+    }
+
     private void EnemyDefeated(bool byPlayer)
     {
         OnEnemyDeath?.Invoke();
@@ -102,8 +111,9 @@ public class Enemy : MonoBehaviour
     public void RecieveDamage(int damage)
     {
         currentHealth -= damage;
+        UpdateHealthBar();
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             EnemyDefeated(true);
         }

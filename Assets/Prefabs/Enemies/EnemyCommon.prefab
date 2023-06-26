@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 1353227187343356085}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.63832, y: 1.6957, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6365296854216969751}
@@ -9001,6 +9001,7 @@ MonoBehaviour:
   enemySO: {fileID: 11400000, guid: 9a2e14d8dd3eb814ba5dec87cf80b6e7, type: 2}
   hordeEvent: {fileID: 11400000, guid: 4c7957bde03bdd64d9bc781859cecf04, type: 2}
   playerStats: {fileID: 11400000, guid: ce45ea711da3b8c42a1bb7962b347a7b, type: 2}
+  healthBar: {fileID: 3191551301656129528}
 --- !u!54 &4652824769690064247
 Rigidbody:
   m_ObjectHideFlags: 0
