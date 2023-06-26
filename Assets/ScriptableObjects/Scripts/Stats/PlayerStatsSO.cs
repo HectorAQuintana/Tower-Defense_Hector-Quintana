@@ -14,7 +14,7 @@ public class PlayerStatsSO : ScriptableObject
     private int currentHealth;
     private int currentMoney;
 
-    public Action BaseHealthChange;
+    public Action OnBaseHealthChange;
     public Action OnBaseDestroyed;
     public Action OnMoneyChanged;
 
@@ -24,6 +24,7 @@ public class PlayerStatsSO : ScriptableObject
         currentMoney = initialMoney;
     }
 
+    public int GetInitialHealth => initialHealth;
     public int GetCurrentHealth => currentHealth;
     public int GetCurrentMoney => currentMoney;
 
@@ -32,7 +33,7 @@ public class PlayerStatsSO : ScriptableObject
         if(currentHealth <= 0) { return; }
 
         currentHealth -= damage;
-        BaseHealthChange?.Invoke();
+        OnBaseHealthChange?.Invoke();
 
         if (currentHealth <= 0)
         {
@@ -44,14 +45,14 @@ public class PlayerStatsSO : ScriptableObject
     public void ResetHealth()
     {
         currentHealth = initialHealth;
-        BaseHealthChange?.Invoke();
+        OnBaseHealthChange?.Invoke();
     }
 
     public void SetStatsBeforeHorde()
     {
         currentHealth = initialHealth;
         OnMoneyChanged?.Invoke();
-        BaseHealthChange?.Invoke();
+        OnBaseHealthChange?.Invoke();
     }
 
     public void AddMoney(int money)
