@@ -15252,6 +15252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: {fileID: 11400000, guid: d9e04683739c4e642b940a095abc25cb, type: 2}
   hordeEvents: {fileID: 11400000, guid: 4c7957bde03bdd64d9bc781859cecf04, type: 2}
+  playerStats: {fileID: 11400000, guid: ce45ea711da3b8c42a1bb7962b347a7b, type: 2}
   enemyPrefabs:
   - {fileID: 4652824769690064246, guid: 12bb8c14a341dfa49b857cda1fabc70f, type: 3}
   hordeQuantity: 10

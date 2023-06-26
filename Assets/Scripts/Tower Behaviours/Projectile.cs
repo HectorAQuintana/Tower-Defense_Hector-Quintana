@@ -45,6 +45,8 @@ public class Projectile : MonoBehaviour
     {
         if(!other.CompareTag("Enemy")) { return; }
 
+        other.GetComponent<Enemy>().RecieveDamage(damage);
+
         ReturnProjectile();
     }
 }

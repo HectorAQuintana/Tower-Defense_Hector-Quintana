@@ -9,12 +9,15 @@ public class HordeManager : MonoBehaviour
     [SerializeField]
     private HordeEventsSO hordeEvents;
     [SerializeField]
+    private PlayerStatsSO playerStats;
+    [SerializeField]
     private List<GameObject> enemyPrefabs = new List<GameObject>();
     [SerializeField]
     private int hordeQuantity = 10;
     [SerializeField]
     private float spawnCooldwon = 3;
 
+    private int hordeLevel = 0;
     private int hordeSpawned = 0;
     private int hordeAlived = 0;
 
@@ -76,6 +79,7 @@ public class HordeManager : MonoBehaviour
         {
             hordeAlived = 0;
             gameState.ChangeStateToBuilding();
+            playerStats.ResetHealth();
         }
     }
 }

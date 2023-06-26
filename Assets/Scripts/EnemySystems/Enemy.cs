@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     private EnemySO enemySO;
     [SerializeField]
     private HordeEventsSO hordeEvent;
+    [SerializeField]
+    private PlayerStatsSO playerStats;
 
     private EnemySO.State state = EnemySO.State.Alive;
     private WaypointsSystem waypointsSystem;
@@ -84,12 +86,17 @@ public class Enemy : MonoBehaviour
         positionToGo = waypointsSystem.GetWaypointPosition(waypointIndex);
     }
 
-    private void EnemyDefeated()
+    private void EnemyDefeated(bool byPlayer)
     {
         OnEnemyDeath?.Invoke();
         state = EnemySO.State.Death;
         hordeEvent.OnEnemyDestroyed.Invoke();
         gameObject.SetActive(false);
+
+        if(byPlayer)
+        {
+            playerStats.AddMoney(enemySO.MoneyDrop);
+        }
     }
 
     public void RecieveDamage(int damage)
@@ -98,13 +105,14 @@ public class Enemy : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            EnemyDefeated();
+            EnemyDefeated(true);
         }
     }
 
     public void EnemyReachBase()
     {
-        EnemyDefeated();
+        playerStats.RecieveDamage(enemySO.Damage);
+        EnemyDefeated(false);
     }
 
     public int GetCurrentHealth => currentHealth;
