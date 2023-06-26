@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 691b0e0b6989ac34bae79ce1c00ef4e5, type: 2}
+  - {fileID: 2100000, guid: 1fa71c5f9281685478c6875f66a608eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -177,7 +177,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 691b0e0b6989ac34bae79ce1c00ef4e5, type: 2}
+  - {fileID: 2100000, guid: 1fa71c5f9281685478c6875f66a608eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 7999454192743487272}
   - component: {fileID: 1275633426818005099}
   m_Layer: 0
-  m_Name: TowerNormal
+  m_Name: TowerSniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1984c574e8b9e45854630f57aac86b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerSO: {fileID: 11400000, guid: b65a69363d9dfed49bb11aabdff83e53, type: 2}
+  towerSO: {fileID: 11400000, guid: b63e9502234c7dd4589e74cc9536515d, type: 2}
   sphereCollider: {fileID: 1275633426818005099}
   projectileSpawnTransfomr: {fileID: 3387298597352409956}
 --- !u!135 &1275633426818005099

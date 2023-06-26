@@ -28,6 +28,7 @@ public class TowerBuyButton : SetActiveOnGameState
         base.OnEnable();
         playerState.OnPlayerStateChange += SetButtonInteraction;
         playerStats.OnMoneyChanged += SetButtonInteraction;
+        SetButtonInteraction();
     }
 
     void OnDisable()

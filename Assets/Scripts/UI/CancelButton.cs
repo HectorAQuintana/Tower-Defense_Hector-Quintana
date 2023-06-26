@@ -16,14 +16,13 @@ public class CancelButton : SetActiveOnGameState
         button = GetComponent<Button>();
 
         button.onClick.AddListener(delegate () { playerState.SetPlayerToIdle(); });
-
-        SetButtonInteraction();
     }
 
     protected override void OnEnable()
     {
         base.OnEnable();
         playerState.OnPlayerStateChange += SetButtonInteraction;
+        SetButtonInteraction();
     }
 
     void OnDestroy()

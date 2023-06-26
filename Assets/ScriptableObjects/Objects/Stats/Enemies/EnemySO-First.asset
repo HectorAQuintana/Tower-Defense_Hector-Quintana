@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Health>k__BackingField: 100
   <Speed>k__BackingField: 5
-  <Damage>k__BackingField: 15
+  <Damage>k__BackingField: 50
   <MoneyDrop>k__BackingField: 10
   <Multiplier>k__BackingField: 0.5

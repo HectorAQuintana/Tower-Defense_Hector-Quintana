@@ -48,6 +48,8 @@ public class HordeManager : MonoBehaviour
         currentHordeQuantity = hordeLevel * hordeQuantity;
         currentSpawnCooldown = spawnCooldwon / hordeLevel;
         hordeSpawned = 0;
+        hordeAlived = currentHordeQuantity;
+
         StartCoroutine(HordeSpawner());
     }
 
@@ -77,7 +79,6 @@ public class HordeManager : MonoBehaviour
     private void EnemySpawned()
     {
         hordeSpawned++;
-        hordeAlived++;
     }
 
     private void EnemyDestroyed()
@@ -85,7 +86,6 @@ public class HordeManager : MonoBehaviour
         hordeAlived--;
         if(hordeAlived <= 0)
         {
-            hordeAlived = 0;
             hordeLevel++;
 
             playerStats.ResetHealth();
