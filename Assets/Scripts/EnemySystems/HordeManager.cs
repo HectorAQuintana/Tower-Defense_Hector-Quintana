@@ -45,6 +45,8 @@ public class HordeManager : MonoBehaviour
     {
         if(gameState.IsOnBuildingMode) { return; }
 
+        playerStats.ResetHealth();
+
         currentHordeQuantity = hordeLevel * hordeQuantity;
         currentSpawnCooldown = spawnCooldwon / hordeLevel;
         hordeSpawned = 0;

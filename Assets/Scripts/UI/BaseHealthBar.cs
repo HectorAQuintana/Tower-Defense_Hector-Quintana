@@ -10,9 +10,8 @@ public class BaseHealthBar : SetActiveOnGameState
     [SerializeField]
     private Slider slider;
 
-    protected override void OnEnable()
+    void OnEnable()
     {
-        base.OnEnable();
         playerStats.OnBaseHealthChange += UpdateSlider;
     }
 

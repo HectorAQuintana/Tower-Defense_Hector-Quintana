@@ -24,6 +24,12 @@ public class PlayerStatsSO : ScriptableObject
         currentMoney = initialMoney;
     }
 
+    private void OnDisable()
+    {
+        currentHealth = initialHealth;
+        currentMoney = initialMoney;
+    }
+
     public int GetInitialHealth => initialHealth;
     public int GetCurrentHealth => currentHealth;
     public int GetCurrentMoney => currentMoney;

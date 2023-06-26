@@ -23,9 +23,8 @@ public class TowerBuyButton : SetActiveOnGameState
         button.onClick.AddListener(delegate () { towerSpawnManager.TowerSelected(towerPrefab); });
     }
 
-    protected override void OnEnable()
+    void OnEnable()
     {
-        base.OnEnable();
         playerState.OnPlayerStateChange += SetButtonInteraction;
         playerStats.OnMoneyChanged += SetButtonInteraction;
         SetButtonInteraction();

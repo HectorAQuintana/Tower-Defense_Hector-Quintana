@@ -24,9 +24,8 @@ public class StartHordeButton : SetActiveOnGameState
         playerState.SetPlayerToIdle();
     }
 
-    protected override void OnEnable()
+    void OnEnable()
     {
-        base.OnEnable();
         playerState.OnPlayerStateChange += SetButtonInteraction;
     }
 

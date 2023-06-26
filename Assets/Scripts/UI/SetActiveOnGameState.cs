@@ -9,19 +9,14 @@ public class SetActiveOnGameState : MonoBehaviour
     [SerializeField]
     private GameStateSO.GameState stateToActivate;
 
-    protected virtual void OnEnable()
-    {
-        gameState.OnGameStateChanged += SetActive;
-    }
-
-    void OnDestroy()
+    protected void OnDestroy()
     {
         gameState.OnGameStateChanged -= SetActive;
     }
 
     private void Start()
     {
-        SetActive();
+        gameState.OnGameStateChanged += SetActive;
     }
 
     private void SetActive()
