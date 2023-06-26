@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f70c978ea74b9643a22cb9219496c9a, type: 3}
-  m_Name: EnemySO-First
+  m_Name: EnemySO-Fast
   m_EditorClassIdentifier: 
-  <Health>k__BackingField: 100
-  <Speed>k__BackingField: 5
-  <Damage>k__BackingField: 50
-  <MoneyDrop>k__BackingField: 20
+  <Health>k__BackingField: 50
+  <Speed>k__BackingField: 15
+  <Damage>k__BackingField: 20
+  <MoneyDrop>k__BackingField: 10
   <Multiplier>k__BackingField: 0.5

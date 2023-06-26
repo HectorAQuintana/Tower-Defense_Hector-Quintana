@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 779f1c80a81d224489c6e05d0cfd9f09, type: 3}
-  m_Name: TowerSO-Snipe
+  m_Name: TowerSO-Fast
   m_EditorClassIdentifier: 
-  <Range>k__BackingField: 20
-  <Damage>k__BackingField: 80
-  <FireRate>k__BackingField: 0.8
-  <Price>k__BackingField: 200
+  <Range>k__BackingField: 10
+  <Damage>k__BackingField: 3
+  <FireRate>k__BackingField: 0.05
+  <Price>k__BackingField: 150
   <Multiplier>k__BackingField: 1.5
   <ProjectilePrefab>k__BackingField: {fileID: 6874712315787634885, guid: dff023742d91d99478304ce903c2de1f, type: 3}

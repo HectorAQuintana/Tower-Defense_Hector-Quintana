@@ -8907,7 +8907,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aef3b1815a004a242ac946cf8996e11b, type: 2}
+  - {fileID: 2100000, guid: b10e8678181f520488f537e4bde7f6af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8950,7 +8950,7 @@ GameObject:
   - component: {fileID: 4652824769690064244}
   - component: {fileID: 4652824769690064247}
   m_Layer: 0
-  m_Name: EnemyCommon
+  m_Name: EnemyTank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8965,7 +8965,7 @@ Transform:
   m_GameObject: {fileID: 4652824769690064246}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.45616293, y: 0, z: -7.9607954}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4652824768953925529}
@@ -8998,7 +8998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6b83ca4c14dcc488ef3a6bb41fb56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySO: {fileID: 11400000, guid: 9a2e14d8dd3eb814ba5dec87cf80b6e7, type: 2}
+  enemySO: {fileID: 11400000, guid: 63dbfd5d001be8f4fa4c51483ed43b66, type: 2}
   hordeEvent: {fileID: 11400000, guid: 4c7957bde03bdd64d9bc781859cecf04, type: 2}
   playerStats: {fileID: 11400000, guid: ce45ea711da3b8c42a1bb7962b347a7b, type: 2}
   healthBar: {fileID: 3191551301656129528}
