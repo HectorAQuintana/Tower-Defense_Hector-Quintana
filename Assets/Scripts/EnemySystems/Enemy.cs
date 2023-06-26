@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     private EnemySO enemySO;
+    [SerializeField]
+    private HordeEventsSO hordeEvent;
 
     private EnemySO.State state = EnemySO.State.Alive;
     private WaypointsSystem waypointsSystem;
@@ -48,6 +50,7 @@ public class Enemy : MonoBehaviour
         UpdatePositionToGo();
         currentHealth = enemySO.Health;
         currentSpeed = enemySO.Speed;
+        hordeEvent.OnEnemySpawned.Invoke();
     }
 
     // Update is called once per frame
@@ -85,6 +88,7 @@ public class Enemy : MonoBehaviour
     {
         OnEnemyDeath?.Invoke();
         state = EnemySO.State.Death;
+        hordeEvent.OnEnemyDestroyed.Invoke();
         gameObject.SetActive(false);
     }
 

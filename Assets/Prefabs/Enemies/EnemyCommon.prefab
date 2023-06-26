@@ -8645,7 +8645,7 @@ GameObject:
   - component: {fileID: 4652824769690064244}
   - component: {fileID: 4652824769690064247}
   m_Layer: 0
-  m_Name: EnemyNormal
+  m_Name: EnemyCommon
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8693,6 +8693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 9a2e14d8dd3eb814ba5dec87cf80b6e7, type: 2}
+  hordeEvent: {fileID: 11400000, guid: 4c7957bde03bdd64d9bc781859cecf04, type: 2}
 --- !u!54 &4652824769690064247
 Rigidbody:
   m_ObjectHideFlags: 0
