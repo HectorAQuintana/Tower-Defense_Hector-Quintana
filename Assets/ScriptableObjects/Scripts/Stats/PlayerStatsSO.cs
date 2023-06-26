@@ -63,6 +63,7 @@ public class PlayerStatsSO : ScriptableObject
     public void RemoveMoney(int money)
     {
         currentMoney -= money;
+        Debug.Log(money);
         OnMoneyChanged?.Invoke();
     }
 }

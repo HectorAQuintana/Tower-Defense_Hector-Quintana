@@ -7,6 +7,8 @@ public class TowerSpawn : MonoBehaviour
     [SerializeField]
     private PlayerStateSO playerState;
     [SerializeField]
+    private PlayerStatsSO playerStats;
+    [SerializeField]
     private GameObject towerIndicator;
     [SerializeField]
     private GameObject towerRangeIndicator;
@@ -75,6 +77,8 @@ public class TowerSpawn : MonoBehaviour
         }
 
         newTower.transform.position = position;
+
+        playerStats.RemoveMoney(newTower.GetComponent<Tower>().TowerScriptableObject.Price);
     }
 
     public void TowerSelected(GameObject towerPrefab)

@@ -8,6 +8,8 @@ public class TowerBuyButton : SetActiveOnGameState
     [SerializeField]
     private PlayerStateSO playerState;
     [SerializeField]
+    private PlayerStatsSO playerStats;
+    [SerializeField]
     private GameObject towerPrefab;
 
     private Button button;
@@ -25,15 +27,17 @@ public class TowerBuyButton : SetActiveOnGameState
     {
         base.OnEnable();
         playerState.OnPlayerStateChange += SetButtonInteraction;
+        playerStats.OnMoneyChanged += SetButtonInteraction;
     }
 
     void OnDisable()
     {
         playerState.OnPlayerStateChange -= SetButtonInteraction;
+        playerStats.OnMoneyChanged -= SetButtonInteraction;
     }
 
     private void SetButtonInteraction()
     {
-        button.interactable = playerState.IsIdle ? true : false;
+        button.interactable = playerState.IsIdle && playerStats.GetCurrentMoney >= towerPrefab.GetComponent<Tower>().TowerScriptableObject.Price;
     }
 }

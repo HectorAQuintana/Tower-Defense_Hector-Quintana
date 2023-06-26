@@ -2255,6 +2255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerState: {fileID: 11400000, guid: a221288741e58bd41b7ae6dc1e9997e0, type: 2}
+  playerStats: {fileID: 11400000, guid: ce45ea711da3b8c42a1bb7962b347a7b, type: 2}
   towerIndicator: {fileID: 1618004652}
   towerRangeIndicator: {fileID: 1472374848}
   maskToHit:
@@ -16887,6 +16888,7 @@ MonoBehaviour:
   gameState: {fileID: 11400000, guid: d9e04683739c4e642b940a095abc25cb, type: 2}
   stateToActivate: 0
   playerState: {fileID: 11400000, guid: a221288741e58bd41b7ae6dc1e9997e0, type: 2}
+  playerStats: {fileID: 11400000, guid: ce45ea711da3b8c42a1bb7962b347a7b, type: 2}
   towerPrefab: {fileID: 7072926366511025200, guid: 97f691f2e20436b4d9bb5b42041697ac, type: 3}
 --- !u!114 &1951258978
 MonoBehaviour:
