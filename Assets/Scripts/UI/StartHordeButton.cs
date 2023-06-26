@@ -15,7 +15,13 @@ public class StartHordeButton : SetActiveOnGameState
     {
         button = GetComponent<Button>();
 
-        button.onClick.AddListener(delegate () { gameState.ChangeStateToBattling(); });
+        button.onClick.AddListener(StartHorde);
+    }
+
+    private void StartHorde()
+    {
+        gameState.ChangeStateToBattling();
+        playerState.SetPlayerToIdle();
     }
 
     protected override void OnEnable()

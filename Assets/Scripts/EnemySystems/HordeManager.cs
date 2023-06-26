@@ -17,15 +17,21 @@ public class HordeManager : MonoBehaviour
     [SerializeField]
     private float spawnCooldwon = 3;
 
-    private int hordeLevel = 0;
+    private int hordeLevel = 1;
     private int hordeSpawned = 0;
     private int hordeAlived = 0;
+
+    private int currentHordeQuantity;
+    private float currentSpawnCooldown;
 
     private void OnEnable()
     {
         gameState.OnGameStateChanged += StartHorde;
         hordeEvents.OnEnemySpawned += EnemySpawned;
         hordeEvents.OnEnemyDestroyed += EnemyDestroyed;
+
+        currentHordeQuantity = hordeLevel * hordeQuantity;
+        currentSpawnCooldown = spawnCooldwon / hordeLevel;
     }
 
     private void OnDisable()
@@ -39,18 +45,20 @@ public class HordeManager : MonoBehaviour
     {
         if(gameState.IsOnBuildingMode) { return; }
 
+        currentHordeQuantity = hordeLevel * hordeQuantity;
+        currentSpawnCooldown = spawnCooldwon / hordeLevel;
         hordeSpawned = 0;
         StartCoroutine(HordeSpawner());
     }
 
     private IEnumerator HordeSpawner()
     {
-        while(hordeSpawned < hordeQuantity)
+        while(hordeSpawned < currentHordeQuantity)
         {
             int randomEnemy = Random.Range(0, enemyPrefabs.Count);
             SpawnMonster(enemyPrefabs[randomEnemy]);
 
-            yield return new WaitForSeconds(spawnCooldwon);
+            yield return new WaitForSeconds(currentSpawnCooldown);
         }
     }
 
@@ -78,8 +86,11 @@ public class HordeManager : MonoBehaviour
         if(hordeAlived <= 0)
         {
             hordeAlived = 0;
-            gameState.ChangeStateToBuilding();
+            hordeLevel++;
+
             playerStats.ResetHealth();
+            gameState.ChangeStateToBuilding();
+            
         }
     }
 }
